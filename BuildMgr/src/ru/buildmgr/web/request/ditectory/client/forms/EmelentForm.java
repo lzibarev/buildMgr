@@ -8,13 +8,15 @@ import com.sencha.gxt.widget.core.client.event.SelectEvent.SelectHandler;
 
 public class EmelentForm extends CommonForm {
 
+	
+	
 	@Override
 	protected void init() {
 		super.init();
 		ElemetsGrid grid = new ElemetsGrid();
 		add(grid);
 	}
-	
+
 	@Override
 	protected String getTitleName() {
 		return "Элемент";

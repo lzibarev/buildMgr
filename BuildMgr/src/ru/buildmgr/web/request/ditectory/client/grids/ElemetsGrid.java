@@ -20,7 +20,7 @@ public class ElemetsGrid implements IsWidget {
 	private static final CMConstractionElementProperties props = GWT.create(CMConstractionElementProperties.class);
 
 	@Override
-	public Widget asWidget() {
+	public Widget asWidget() {		
 		ColumnConfig<CMConstractionElement, String> nameCol = new ColumnConfig<CMConstractionElement, String>(
 				props.name(), 50, "Name");
 		ColumnConfig<CMConstractionElement, String> typeCol = new ColumnConfig<CMConstractionElement, String>(
