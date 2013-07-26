@@ -4,3 +4,6 @@
 /ru.buildmgr.web.request.ditectory.RequestDirectory
 /requestdirectory
 /webcommon
+/requestcommon
+/requestsearch
+/webdatamodel
