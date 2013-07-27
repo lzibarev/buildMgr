@@ -10,25 +10,26 @@ import ru.buildmgr.web.dataModel.storemodel.ConstractionElement;
 
 public class SConstractionElementUtils {
 
-	public static List<ConstractionElement> getTop10(){
+	public static List<ConstractionElement> getTop10() {
 		EntityManager em = null;
 		List<ConstractionElement> beers = null;
 		try {
 			em = EMF.get().createEntityManager();
-			Query q = em.createQuery("select bo from ConstractionElement ce LIMIT 10 ");
+			Query q = em.createQuery("select ce from ConstractionElement ce LIMIT 10 ");
 			beers = new ArrayList<ConstractionElement>(q.getResultList());
-		}finally{
-			em.close();
+		} finally {
+			if (em != null)
+				em.close();
 		}
 		return beers;
 	}
-	
-	public static final ConstractionElement create(ConstractionElement element){
+
+	public static ConstractionElement create(ConstractionElement element) {
 		EntityManager em = null;
 		try {
 			em = EMF.get().createEntityManager();
 			em.persist(element);
-		}finally{
+		} finally {
 			em.close();
 		}
 		return element;

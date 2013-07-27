@@ -13,8 +13,6 @@ public class EmelentForm extends CommonForm {
 	@Override
 	protected void init() {
 		super.init();
-		ElemetsGrid grid = new ElemetsGrid();
-		add(grid);
 	}
 
 	@Override

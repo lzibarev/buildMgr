@@ -5,7 +5,6 @@ import java.util.List;
 
 import ru.buildmgr.web.dataModel.clientmodel.CMConstractionElement;
 import ru.buildmgr.web.dataModel.clientmodel.CMConstractionElementProperties;
-import ru.buildmgr.web.dataModel.demostore.DSConstractionElementUtils;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.ui.IsWidget;
@@ -19,8 +18,14 @@ public class ElemetsGrid implements IsWidget {
 
 	private static final CMConstractionElementProperties props = GWT.create(CMConstractionElementProperties.class);
 
+	private List<CMConstractionElement> elements;
+
+	public ElemetsGrid(List<CMConstractionElement> elements) {
+		this.elements = elements;
+	}
+
 	@Override
-	public Widget asWidget() {		
+	public Widget asWidget() {
 		ColumnConfig<CMConstractionElement, String> nameCol = new ColumnConfig<CMConstractionElement, String>(
 				props.name(), 50, "Name");
 		ColumnConfig<CMConstractionElement, String> typeCol = new ColumnConfig<CMConstractionElement, String>(
@@ -38,7 +43,7 @@ public class ElemetsGrid implements IsWidget {
 		ColumnModel<CMConstractionElement> cm = new ColumnModel<CMConstractionElement>(l);
 
 		ListStore<CMConstractionElement> store = new ListStore<CMConstractionElement>(props.key());
-		store.addAll(DSConstractionElementUtils.getConstractionElements());
+		store.addAll(elements);
 
 		final Grid<CMConstractionElement> grid = new Grid<CMConstractionElement>(store, cm);
 		grid.getView().setAutoExpandColumn(nameCol);

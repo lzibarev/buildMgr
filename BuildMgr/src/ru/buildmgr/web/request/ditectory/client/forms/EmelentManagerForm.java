@@ -1,6 +1,9 @@
 package ru.buildmgr.web.request.ditectory.client.forms;
 
+import java.util.List;
+
 import ru.buildmgr.web.common.client.forms.CommonForm;
+import ru.buildmgr.web.dataModel.clientmodel.CMConstractionElement;
 import ru.buildmgr.web.dataModel.clientservices.DirectoryService;
 import ru.buildmgr.web.dataModel.clientservices.DirectoryServiceAsync;
 import ru.buildmgr.web.request.ditectory.client.grids.ElemetsGrid;
@@ -24,17 +27,24 @@ public class EmelentManagerForm extends CommonForm {
 
 			@Override
 			public void onFailure(Throwable caught) {
-				setHeadingText("ERROR");
+				setHeadingText("ERROR1");
 			}
 		});
 
-	}
+		service.getAllCMConstractionElements(new AsyncCallback<List<CMConstractionElement>>() {
 
-	@Override
-	protected void init() {
-		super.init();
-		ElemetsGrid grid = new ElemetsGrid();
-		add(grid);
+			@Override
+			public void onSuccess(List<CMConstractionElement> result) {
+				ElemetsGrid grid = new ElemetsGrid(result);
+				add(grid);
+			}
+
+			@Override
+			public void onFailure(Throwable caught) {
+				setHeadingText("ERROR2");
+			}
+		});
+
 	}
 
 	@Override
