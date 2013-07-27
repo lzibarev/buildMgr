@@ -1,7 +1,6 @@
 package ru.buildmgr.web.dataModel.services;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import ru.buildmgr.web.dataModel.clientmodel.CMConstractionElement;
@@ -15,8 +14,8 @@ import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 @SuppressWarnings("serial")
 public class DirectoryServiceImpl extends RemoteServiceServlet implements DirectoryService {
 
-	private static final boolean TEST_MODE = false; 
-	
+	private static final boolean TEST_MODE = false;
+
 	@Override
 	public String greetServer(String name) throws IllegalArgumentException {
 		return "Hi " + name + " it is DirectoryService";
@@ -24,7 +23,7 @@ public class DirectoryServiceImpl extends RemoteServiceServlet implements Direct
 
 	@Override
 	public List<CMConstractionElement> getAllCMConstractionElements() {
-		if (TEST_MODE){
+		if (TEST_MODE) {
 			return DSConstractionElementUtils.getConstractionElements();
 		}
 		List<CMConstractionElement> result = new ArrayList<CMConstractionElement>();
@@ -34,13 +33,14 @@ public class DirectoryServiceImpl extends RemoteServiceServlet implements Direct
 		}
 		return result;
 	}
-/**
- * 
- * 		ConstractionElement element = new ConstractionElement();
-		element.setName("Created element" + new Date().getTime());
-		element.setElementClassName("className");
-		element.setElementTypeName("element type name");
-		ConstractionElement element2 = SConstractionElementUtils.create(element);
-		System.out.println(element2.getKey());
-*/
+
+	@Override
+	public CMConstractionElement createElement(CMConstractionElement source) throws IllegalArgumentException {
+		if (TEST_MODE) {
+			return DSConstractionElementUtils.create(source);
+		}
+		ConstractionElement element = new ConstractionElement(source);
+		element = SConstractionElementUtils.create(element);
+		return element.asClient();
+	}
 }

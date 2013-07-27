@@ -12,4 +12,6 @@ public interface DirectoryServiceAsync {
 
 	void getAllCMConstractionElements(AsyncCallback<List<CMConstractionElement>> callback);
 
+	void createElement(CMConstractionElement element, AsyncCallback<CMConstractionElement> callback);
+
 }

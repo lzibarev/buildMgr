@@ -1,7 +1,5 @@
 package ru.buildmgr.web.dataModel.storemodel;
 
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,13 +19,26 @@ public class ConstractionElement {
 	private String name;
 	private String elementClassName;
 
-//	public ConstractionElementType elementType;
+	// public ConstractionElementType elementType;
 	private String elementTypeName;
 
-//	public ConstractionObjectAddress objectAddress;
+	// public ConstractionObjectAddress objectAddress;
 	private String objectAddressName;
 
-//	public List<ConstractionItemPosition> positions;
+	// public List<ConstractionItemPosition> positions;
+
+	public ConstractionElement() {
+
+	}
+
+	public ConstractionElement(CMConstractionElement source) {
+		this();
+		setName(source.getName());
+		setElementClassName(source.getClassName());
+		setElementTypeName(source.getTypeName());
+		setObjectAddressName(source.getObjectAddressName());
+
+	}
 
 	public CMConstractionElement asClient() {
 		CMConstractionElement e = new CMConstractionElement();
