@@ -7,15 +7,25 @@ import ru.buildmgr.web.dataModel.clientmodel.CMConstractionElement;
 
 public class DSConstractionElementUtils {
 
+	private static String[] NAMES = {"name1", "name2", "name3", "name4"};
+	
 	public static List<CMConstractionElement> getConstractionElements() {
 		List<CMConstractionElement> list = new ArrayList<CMConstractionElement>();
-		CMConstractionElement e = new CMConstractionElement();
-		e.setId("id 1");
-		e.setClassName("class name 1");
-		e.setName("name 1");
-		e.setObjectAddressName("object address 1");
-		e.setTypeName("type name 1");
-		list.add(e);
+		
+		int index = 1;
+		for (String name : NAMES) {
+			CMConstractionElement e = new CMConstractionElement();
+			e.setName(name);
+			
+			e.setId("id "+index);
+			e.setClassName("class name "+index);
+			e.setObjectAddressName("object address "+index);
+			e.setTypeName("type name "+index);
+			list.add(e);
+			index ++;
+		}
 		return list;
 	}
+	
+	
 }
