@@ -18,14 +18,8 @@ public class ConstractionElement {
 
 	private String name;
 	private String elementClassName;
-
-	// public ConstractionElementType elementType;
 	private String elementTypeName;
-
-	// public ConstractionObjectAddress objectAddress;
 	private String objectAddressName;
-
-	// public List<ConstractionItemPosition> positions;
 
 	public ConstractionElement() {
 
