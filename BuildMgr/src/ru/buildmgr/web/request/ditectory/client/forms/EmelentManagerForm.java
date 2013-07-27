@@ -1,8 +1,8 @@
 package ru.buildmgr.web.request.ditectory.client.forms;
 
 import ru.buildmgr.web.common.client.forms.CommonForm;
-import ru.buildmgr.web.request.ditectory.client.DirectoryService;
-import ru.buildmgr.web.request.ditectory.client.DirectoryServiceAsync;
+import ru.buildmgr.web.dataModel.clientservices.DirectoryService;
+import ru.buildmgr.web.dataModel.clientservices.DirectoryServiceAsync;
 import ru.buildmgr.web.request.ditectory.client.grids.ElemetsGrid;
 
 import com.google.gwt.core.client.GWT;

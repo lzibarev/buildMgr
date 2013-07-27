@@ -1,4 +1,4 @@
-package ru.buildmgr.web.request.ditectory.client;
+package ru.buildmgr.web.dataModel.clientservices;
 
 import com.google.gwt.user.client.rpc.RemoteService;
 import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;

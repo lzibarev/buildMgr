@@ -1,6 +1,6 @@
-package ru.buildmgr.web.request.ditectory;
+package ru.buildmgr.web.dataModel.services;
 
-import ru.buildmgr.web.request.ditectory.client.DirectoryService;
+import ru.buildmgr.web.dataModel.clientservices.DirectoryService;
 
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 
@@ -9,7 +9,7 @@ public class DirectoryServiceImpl extends RemoteServiceServlet implements Direct
 
 	@Override
 	public String greetServer(String name) throws IllegalArgumentException {
-		return "test";
+		return "Hi "+name+" it is DirectoryService";
 	}
 
 }

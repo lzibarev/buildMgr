@@ -7,19 +7,20 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 
 	<servlet>
 		<servlet-name>directoryservice</servlet-name>
-		<servlet-class>ru.buildmgr.web.request.ditectory.DirectoryServiceImpl</servlet-class>
+		<servlet-class>ru.buildmgr.web.dataModel.services.DirectoryServiceImpl</servlet-class>
 	</servlet>
-
-	<servlet-mapping>
-		<servlet-name>directoryservice</servlet-name>
-		<url-pattern>/ru.buildmgr.web.request.ditectory.RequestDirectory/directoryservice</url-pattern>
-	</servlet-mapping>
-
 
 	<servlet>
 		<servlet-name>loginService</servlet-name>
 		<servlet-class>ru.buildmgr.web.common.services.LoginServiceImpl</servlet-class>
 	</servlet>
+
+
+
+	<servlet-mapping>
+		<servlet-name>directoryservice</servlet-name>
+		<url-pattern>/requestdirectory/directoryservice</url-pattern>
+	</servlet-mapping>
 
 	<servlet-mapping>
 		<servlet-name>loginService</servlet-name>
