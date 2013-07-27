@@ -4,7 +4,7 @@ import ru.buildmgr.web.common.client.WebCommonEntryPoint;
 import ru.buildmgr.web.dataModel.clientservices.DirectoryService;
 import ru.buildmgr.web.dataModel.clientservices.DirectoryServiceAsync;
 import ru.buildmgr.web.request.ditectory.client.forms.EmelentManagerForm;
-import ru.buildmgr.web.request.ditectory.client.forms.EmelentManagerTypeForm;
+import ru.buildmgr.web.request.ditectory.client.forms.EmelentTypeManagerForm;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
@@ -25,7 +25,7 @@ public class RequestDirectory extends WebCommonEntryPoint implements EntryPoint 
 	protected void showModule() {
 		initService();
 		EmelentManagerForm elementForm = new EmelentManagerForm();
-		EmelentManagerTypeForm elementTypeform = new EmelentManagerTypeForm();
+		EmelentTypeManagerForm elementTypeform = new EmelentTypeManagerForm();
 		getMainContainer().add(elementForm);
 		getMainContainer().add(elementTypeform);
 	}

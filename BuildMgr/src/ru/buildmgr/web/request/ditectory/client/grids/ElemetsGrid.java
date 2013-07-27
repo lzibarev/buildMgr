@@ -27,9 +27,9 @@ public class ElemetsGrid implements IsWidget {
 	@Override
 	public Widget asWidget() {
 		ColumnConfig<CMConstractionElement, String> nameCol = new ColumnConfig<CMConstractionElement, String>(
-				props.name(), 200, "Название элемента");
+				props.name(), 200, "Название изделия");
 		ColumnConfig<CMConstractionElement, String> typeCol = new ColumnConfig<CMConstractionElement, String>(
-				props.typeName(), 200, "Тип элемента");
+				props.typeName(), 200, "Тип изделия");
 		ColumnConfig<CMConstractionElement, String> classCol = new ColumnConfig<CMConstractionElement, String>(
 				props.className(), 200, "Класс");
 		ColumnConfig<CMConstractionElement, String> addressCol = new ColumnConfig<CMConstractionElement, String>(

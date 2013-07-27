@@ -28,7 +28,7 @@ public class ElemetsTypesGrid implements IsWidget {
 	@Override
 	public Widget asWidget() {
 		ColumnConfig<CMConstractionElementType, String> nameCol = new ColumnConfig<CMConstractionElementType, String>(
-				props.name(), 400, "Название типа элемента");
+				props.name(), 400, "Название типа изделия");
 
 		List<ColumnConfig<CMConstractionElementType, ?>> l = new ArrayList<ColumnConfig<CMConstractionElementType, ?>>();
 		l.add(nameCol);

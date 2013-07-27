@@ -11,10 +11,10 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.sencha.gxt.widget.core.client.event.SelectEvent;
 import com.sencha.gxt.widget.core.client.event.SelectEvent.SelectHandler;
 
-public class EmelentManagerTypeForm extends CommonForm {
+public class EmelentTypeManagerForm extends CommonForm {
 
 
-	public EmelentManagerTypeForm() {
+	public EmelentTypeManagerForm() {
 		super();
 		RequestDirectory.getServices().getAllCMConstractionElementTypes(new AsyncCallback<List<CMConstractionElementType>>() {
 
