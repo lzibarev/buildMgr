@@ -12,6 +12,7 @@
 			<property name="datanucleus.NontransactionalWrite" value="true" />
 			<property name="datanucleus.ConnectionURL" value="appengine" />
 		</properties>
+		<class>ru.buildmgr.web.dataModel.storemodel.ConstractionElementType</class>
 		<class>ru.buildmgr.web.dataModel.storemodel.ConstractionElement</class>
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 	</persistence-unit>

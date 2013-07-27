@@ -3,6 +3,7 @@ package ru.buildmgr.web.dataModel.clientservices;
 import java.util.List;
 
 import ru.buildmgr.web.dataModel.clientmodel.CMConstractionElement;
+import ru.buildmgr.web.dataModel.clientmodel.CMConstractionElementType;
 
 import com.google.gwt.user.client.rpc.RemoteService;
 import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
@@ -15,4 +16,8 @@ public interface DirectoryService extends RemoteService {
 	List<CMConstractionElement> getAllCMConstractionElements();
 
 	CMConstractionElement createElement(CMConstractionElement element) throws IllegalArgumentException;
+
+	List<CMConstractionElementType> getAllCMConstractionElementTypes();
+
+	CMConstractionElementType createElementType(CMConstractionElementType source) throws IllegalArgumentException;
 }

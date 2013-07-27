@@ -1,7 +1,7 @@
 package ru.buildmgr.web.request.ditectory.client.forms;
 
 import ru.buildmgr.web.common.client.forms.handlers.CancelSelectHandler;
-import ru.buildmgr.web.dataModel.clientmodel.CMConstractionElement;
+import ru.buildmgr.web.dataModel.clientmodel.CMConstractionElementType;
 import ru.buildmgr.web.request.ditectory.client.RequestDirectory;
 
 import com.google.gwt.user.client.rpc.AsyncCallback;
@@ -14,18 +14,17 @@ import com.sencha.gxt.widget.core.client.event.SelectEvent;
 import com.sencha.gxt.widget.core.client.form.FieldLabel;
 import com.sencha.gxt.widget.core.client.form.TextField;
 
-public class ElementWindowForm extends Window {
+public class ElementTypeWindowForm extends Window {
 
-	private TextField elementName;
-	private TextField elementClassName;
+	private TextField elementTypeName;
 
-	public ElementWindowForm() {
+	public ElementTypeWindowForm() {
 		add(getInfoContainer());
 
 		setPixelSize(500, 300);
 		setModal(true);
 		setBlinkModal(true);
-		setHeadingText("Создание элемента");
+		setHeadingText("Тип элемента");
 		TextButton cancelButton = new TextButton("Отмена");
 		cancelButton.addSelectHandler(new CancelSelectHandler(this));
 		TextButton saveButton = new TextButton("Сохранить");
@@ -37,15 +36,10 @@ public class ElementWindowForm extends Window {
 	private Container getInfoContainer() {
 		VerticalLayoutContainer p = new VerticalLayoutContainer();
 
-		elementName = new TextField();
-		elementName.setAllowBlank(false);
-		elementName.setEmptyText("Введите название элемента...");
-		p.add(new FieldLabel(elementName, "Название"), new VerticalLayoutData(1, -1));
-
-		elementClassName = new TextField();
-		elementClassName.setAllowBlank(false);
-		elementClassName.setEmptyText("Введите класс...");
-		p.add(new FieldLabel(elementClassName, "Класс фильтра (этаж)"), new VerticalLayoutData(1, -1));
+		elementTypeName = new TextField();
+		elementTypeName.setAllowBlank(false);
+		elementTypeName.setEmptyText("Введите название типа элемента...");
+		p.add(new FieldLabel(elementTypeName, "Название"), new VerticalLayoutData(1, -1));
 
 		return p;
 
@@ -59,26 +53,25 @@ public class ElementWindowForm extends Window {
 
 		@Override
 		public void onSelect(SelectEvent event) {
-			ElementWindowForm form = (ElementWindowForm) window;
-			CMConstractionElement element = new CMConstractionElement();
-			element.setName(form.elementName.getValue());
-			element.setClassName(form.elementClassName.getValue());
-			element.setTypeName("type name");
+			ElementTypeWindowForm form = (ElementTypeWindowForm) window;
+			CMConstractionElementType elementType = new CMConstractionElementType();
+			elementType.setName(form.elementTypeName.getValue());
 
-			RequestDirectory.getServices().createElement(element, new AsyncCallback<CMConstractionElement>() {
+			RequestDirectory.getServices().createElementType(elementType,
+					new AsyncCallback<CMConstractionElementType>() {
 
-				@Override
-				public void onSuccess(CMConstractionElement result) {
-					// TODO Auto-generated method stub
+						@Override
+						public void onSuccess(CMConstractionElementType result) {
+							// TODO Auto-generated method stub
 
-				}
+						}
 
-				@Override
-				public void onFailure(Throwable caught) {
-					// TODO Auto-generated method stub
+						@Override
+						public void onFailure(Throwable caught) {
+							// TODO Auto-generated method stub
 
-				}
-			});
+						}
+					});
 			super.onSelect(event);
 		}
 	}

@@ -4,10 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ru.buildmgr.web.dataModel.clientmodel.CMConstractionElement;
+import ru.buildmgr.web.dataModel.clientmodel.CMConstractionElementType;
 import ru.buildmgr.web.dataModel.clientservices.DirectoryService;
 import ru.buildmgr.web.dataModel.demostore.DSConstractionElementUtils;
+import ru.buildmgr.web.dataModel.store.SConstractionElementTypeUtils;
 import ru.buildmgr.web.dataModel.store.SConstractionElementUtils;
 import ru.buildmgr.web.dataModel.storemodel.ConstractionElement;
+import ru.buildmgr.web.dataModel.storemodel.ConstractionElementType;
 
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 
@@ -27,7 +30,7 @@ public class DirectoryServiceImpl extends RemoteServiceServlet implements Direct
 			return DSConstractionElementUtils.getConstractionElements();
 		}
 		List<CMConstractionElement> result = new ArrayList<CMConstractionElement>();
-		List<ConstractionElement> list = SConstractionElementUtils.getTop10();
+		List<ConstractionElement> list = SConstractionElementUtils.getAll();
 		for (ConstractionElement e : list) {
 			result.add(e.asClient());
 		}
@@ -43,4 +46,23 @@ public class DirectoryServiceImpl extends RemoteServiceServlet implements Direct
 		element = SConstractionElementUtils.create(element);
 		return element.asClient();
 	}
+
+	@Override
+	public CMConstractionElementType createElementType(CMConstractionElementType source)
+			throws IllegalArgumentException {
+		ConstractionElementType element = new ConstractionElementType(source);
+		element = SConstractionElementTypeUtils.create(element);
+		return element.asClient();
+	}
+
+	@Override
+	public List<CMConstractionElementType> getAllCMConstractionElementTypes() {
+		List<CMConstractionElementType> result = new ArrayList<CMConstractionElementType>();
+		List<ConstractionElementType> list = SConstractionElementTypeUtils.getAll();
+		for (ConstractionElementType e : list) {
+			result.add(e.asClient());
+		}
+		return result;
+	}
+
 }

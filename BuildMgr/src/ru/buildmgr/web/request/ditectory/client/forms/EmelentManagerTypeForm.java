@@ -3,23 +3,24 @@ package ru.buildmgr.web.request.ditectory.client.forms;
 import java.util.List;
 
 import ru.buildmgr.web.common.client.forms.CommonForm;
-import ru.buildmgr.web.dataModel.clientmodel.CMConstractionElement;
+import ru.buildmgr.web.dataModel.clientmodel.CMConstractionElementType;
 import ru.buildmgr.web.request.ditectory.client.RequestDirectory;
-import ru.buildmgr.web.request.ditectory.client.grids.ElemetsGrid;
+import ru.buildmgr.web.request.ditectory.client.grids.ElemetsTypesGrid;
 
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.sencha.gxt.widget.core.client.event.SelectEvent;
 import com.sencha.gxt.widget.core.client.event.SelectEvent.SelectHandler;
 
-public class EmelentManagerForm extends CommonForm {
+public class EmelentManagerTypeForm extends CommonForm {
 
-	public EmelentManagerForm() {
+
+	public EmelentManagerTypeForm() {
 		super();
-		RequestDirectory.getServices().getAllCMConstractionElements(new AsyncCallback<List<CMConstractionElement>>() {
+		RequestDirectory.getServices().getAllCMConstractionElementTypes(new AsyncCallback<List<CMConstractionElementType>>() {
 
 			@Override
-			public void onSuccess(List<CMConstractionElement> result) {
-				ElemetsGrid grid = new ElemetsGrid(result);
+			public void onSuccess(List<CMConstractionElementType> result) {
+				ElemetsTypesGrid grid = new ElemetsTypesGrid(result);
 				add(grid);
 			}
 
@@ -33,7 +34,7 @@ public class EmelentManagerForm extends CommonForm {
 
 	@Override
 	protected String getTitleName() {
-		return "Упревление строительными изделиями";
+		return "Упревление типами строительных изделий";
 	}
 
 	@Override
@@ -42,7 +43,7 @@ public class EmelentManagerForm extends CommonForm {
 
 			@Override
 			public void onSelect(SelectEvent event) {
-				ElementWindowForm window = new ElementWindowForm();
+				ElementTypeWindowForm window = new ElementTypeWindowForm();
 				window.show();
 			}
 		}));
