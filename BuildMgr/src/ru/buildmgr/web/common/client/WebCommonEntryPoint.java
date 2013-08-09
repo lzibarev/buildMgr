@@ -36,8 +36,8 @@ public abstract class WebCommonEntryPoint implements EntryPoint {
 				loginInfo = result;
 				if (loginInfo.isLoggedIn()) {
 					signOutLink.setHref(loginInfo.getLogoutUrl());
-					showModule();
 					getRootPanel().add(signOutLink);
+					showModule();
 				} else {
 					loadLogin();
 				}
