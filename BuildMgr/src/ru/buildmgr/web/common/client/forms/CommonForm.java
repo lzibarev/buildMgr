@@ -11,7 +11,7 @@ public abstract class CommonForm extends FramedPanel {
 		init();
 		setHeadingText(getTitleName());
 		setButtons();
-		setHeight(300);
+		setHeight(150);
 	}
 
 	protected void init() {
