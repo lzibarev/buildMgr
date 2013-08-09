@@ -25,7 +25,7 @@ public class EmelentManagerForm extends CommonForm {
 
 			@Override
 			public void onFailure(Throwable caught) {
-				setHeadingText("ERROR2");
+				setHeadingText("ERROR1");
 			}
 		});
 

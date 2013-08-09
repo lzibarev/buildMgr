@@ -5,12 +5,15 @@ import java.util.List;
 
 import ru.buildmgr.web.dataModel.clientmodel.CMConstractionElement;
 import ru.buildmgr.web.dataModel.clientmodel.CMConstractionElementType;
+import ru.buildmgr.web.dataModel.clientmodel.CMConstractionObjectAddress;
 import ru.buildmgr.web.dataModel.clientservices.DirectoryService;
 import ru.buildmgr.web.dataModel.demostore.DSConstractionElementUtils;
 import ru.buildmgr.web.dataModel.store.SConstractionElementTypeUtils;
 import ru.buildmgr.web.dataModel.store.SConstractionElementUtils;
+import ru.buildmgr.web.dataModel.store.SConstractionObjectAddressUtils;
 import ru.buildmgr.web.dataModel.storemodel.ConstractionElement;
 import ru.buildmgr.web.dataModel.storemodel.ConstractionElementType;
+import ru.buildmgr.web.dataModel.storemodel.ConstractionObjectAddress;
 
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 
@@ -63,6 +66,23 @@ public class DirectoryServiceImpl extends RemoteServiceServlet implements Direct
 			result.add(e.asClient());
 		}
 		return result;
+	}
+
+	@Override
+	public List<CMConstractionObjectAddress> getAllCMConstractionObjectAddresses() {
+		List<CMConstractionObjectAddress> result = new ArrayList<CMConstractionObjectAddress>();
+		List<ConstractionObjectAddress> list = SConstractionObjectAddressUtils.getAll();
+		for (ConstractionObjectAddress e : list) {
+			result.add(e.asClient());
+		}
+		return result;
+	}
+
+	@Override
+	public CMConstractionObjectAddress createObjectAddress(CMConstractionObjectAddress source) throws IllegalArgumentException {
+		ConstractionObjectAddress element = new ConstractionObjectAddress(source);
+		element = SConstractionObjectAddressUtils.create(element);
+		return element.asClient();
 	}
 
 }

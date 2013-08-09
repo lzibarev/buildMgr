@@ -16,10 +16,9 @@ public abstract class WebCommonEntryPoint implements EntryPoint {
 
 	private LoginInfo loginInfo = null;
 	private VerticalPanel loginPanel = new VerticalPanel();
-	private Label loginLabel = new Label(
-			"Please sign in to your Google Account to access the StockWatcher application.");
-	private Anchor signInLink = new Anchor("Sign In");
-	private Anchor signOutLink = new Anchor("Sign Out");
+	private Label loginLabel = new Label("Необходимо авторизоваться");
+	private Anchor signInLink = new Anchor("Вход");
+	private Anchor signOutLink = new Anchor("Выход");
 
 	@Override
 	public void onModuleLoad() {

@@ -13,15 +13,15 @@ public class SConstractionElementUtils {
 	@SuppressWarnings("unchecked")
 	public static List<ConstractionElement> getAll() {
 		EntityManager em = null;
-		List<ConstractionElement> beers = null;
+		List<ConstractionElement> list = null;
 		try {
 			em = EMF.get().createEntityManager();
 			Query q = em.createQuery("select ce from ConstractionElement ce ");
-			beers = new ArrayList<ConstractionElement>(q.getResultList());
+			list = new ArrayList<ConstractionElement>(q.getResultList());
 		} finally {
 			em.close();
 		}
-		return beers;
+		return list;
 	}
 
 	public static ConstractionElement create(ConstractionElement element) {

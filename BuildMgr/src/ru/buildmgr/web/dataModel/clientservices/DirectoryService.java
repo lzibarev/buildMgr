@@ -4,6 +4,7 @@ import java.util.List;
 
 import ru.buildmgr.web.dataModel.clientmodel.CMConstractionElement;
 import ru.buildmgr.web.dataModel.clientmodel.CMConstractionElementType;
+import ru.buildmgr.web.dataModel.clientmodel.CMConstractionObjectAddress;
 
 import com.google.gwt.user.client.rpc.RemoteService;
 import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
@@ -20,4 +21,8 @@ public interface DirectoryService extends RemoteService {
 	List<CMConstractionElementType> getAllCMConstractionElementTypes();
 
 	CMConstractionElementType createElementType(CMConstractionElementType source) throws IllegalArgumentException;
+	
+	List<CMConstractionObjectAddress> getAllCMConstractionObjectAddresses();
+	
+	CMConstractionObjectAddress createObjectAddress(CMConstractionObjectAddress source) throws IllegalArgumentException;
 }
