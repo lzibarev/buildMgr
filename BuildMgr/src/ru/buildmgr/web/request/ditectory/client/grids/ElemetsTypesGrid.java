@@ -21,7 +21,10 @@ public class ElemetsTypesGrid implements IsWidget {
 
 	private List<CMConstractionElementType> elements;
 
-	public ElemetsTypesGrid(List<CMConstractionElementType> elements) {
+	public ElemetsTypesGrid() {
+	}
+	
+	public void setElemetsTypes(List<CMConstractionElementType> elements) {
 		this.elements = elements;
 	}
 

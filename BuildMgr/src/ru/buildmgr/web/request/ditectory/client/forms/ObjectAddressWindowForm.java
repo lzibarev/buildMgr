@@ -13,6 +13,7 @@ import com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer.Verti
 import com.sencha.gxt.widget.core.client.event.SelectEvent;
 import com.sencha.gxt.widget.core.client.form.FieldLabel;
 import com.sencha.gxt.widget.core.client.form.TextField;
+import com.sencha.gxt.widget.core.client.info.Info;
 
 public class ObjectAddressWindowForm extends Window {
 
@@ -21,10 +22,10 @@ public class ObjectAddressWindowForm extends Window {
 	public ObjectAddressWindowForm() {
 		add(getInfoContainer());
 
-		setPixelSize(500, 300);
+		setPixelSize(500, 100);
 		setModal(true);
 		setBlinkModal(true);
-		setHeadingText("Адрес площадки");
+		setHeadingText("Адрес");
 		TextButton cancelButton = new TextButton("Отмена");
 		cancelButton.addSelectHandler(new CancelSelectHandler(this));
 		TextButton saveButton = new TextButton("Сохранить");
@@ -62,14 +63,12 @@ public class ObjectAddressWindowForm extends Window {
 
 						@Override
 						public void onSuccess(CMConstractionObjectAddress result) {
-							// TODO Auto-generated method stub
-
+							Info.display("Создан адрес", result.getName());
 						}
 
 						@Override
 						public void onFailure(Throwable caught) {
-							// TODO Auto-generated method stub
-
+							Info.display("Ошибка","Ошибка при создании адреса<br/>"+caught.getMessage());
 						}
 					});
 			super.onSelect(event);

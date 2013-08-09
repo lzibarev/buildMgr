@@ -10,6 +10,7 @@ import ru.buildmgr.web.request.ditectory.client.grids.ObjectAddressesGrid;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.sencha.gxt.widget.core.client.event.SelectEvent;
 import com.sencha.gxt.widget.core.client.event.SelectEvent.SelectHandler;
+import com.sencha.gxt.widget.core.client.info.Info;
 
 public class ObjectAddressManagerForm extends CommonForm {
 
@@ -26,7 +27,7 @@ public class ObjectAddressManagerForm extends CommonForm {
 
 			@Override
 			public void onFailure(Throwable caught) {
-				setHeadingText("ERROR3");
+				Info.display("Ошибка","Ошибка при обновлении данных <br/>"+caught.getMessage());
 			}
 		});
 

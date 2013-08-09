@@ -81,8 +81,11 @@ public class DirectoryServiceImpl extends RemoteServiceServlet implements Direct
 	@Override
 	public CMConstractionObjectAddress createObjectAddress(CMConstractionObjectAddress source) throws IllegalArgumentException {
 		ConstractionObjectAddress element = new ConstractionObjectAddress(source);
-		element = SConstractionObjectAddressUtils.create(element);
-		return element.asClient();
+		if (element.getIsValid()){
+			element = SConstractionObjectAddressUtils.create(element);
+			return element.asClient();			
+		}
+		throw new IllegalArgumentException("Не верные параметры");
 	}
 
 }

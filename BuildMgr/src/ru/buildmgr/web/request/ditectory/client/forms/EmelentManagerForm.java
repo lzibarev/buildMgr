@@ -10,6 +10,7 @@ import ru.buildmgr.web.request.ditectory.client.grids.ElemetsGrid;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.sencha.gxt.widget.core.client.event.SelectEvent;
 import com.sencha.gxt.widget.core.client.event.SelectEvent.SelectHandler;
+import com.sencha.gxt.widget.core.client.info.Info;
 
 public class EmelentManagerForm extends CommonForm {
 
@@ -25,7 +26,7 @@ public class EmelentManagerForm extends CommonForm {
 
 			@Override
 			public void onFailure(Throwable caught) {
-				setHeadingText("ERROR1");
+				Info.display("Ошибка","Ошибка при обновлении данных <br/>"+caught.getMessage());
 			}
 		});
 

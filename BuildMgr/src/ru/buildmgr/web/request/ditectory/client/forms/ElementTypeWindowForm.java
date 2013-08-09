@@ -13,12 +13,18 @@ import com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer.Verti
 import com.sencha.gxt.widget.core.client.event.SelectEvent;
 import com.sencha.gxt.widget.core.client.form.FieldLabel;
 import com.sencha.gxt.widget.core.client.form.TextField;
+import com.sencha.gxt.widget.core.client.info.Info;
 
 public class ElementTypeWindowForm extends Window {
 
 	private TextField elementTypeName;
+	private final EmelentTypeManagerForm formMgr;
 
-	public ElementTypeWindowForm() {
+	public ElementTypeWindowForm(EmelentTypeManagerForm formMgr) {
+		super();
+		
+		this.formMgr = formMgr;
+		
 		add(getInfoContainer());
 
 		setPixelSize(500, 300);
@@ -45,7 +51,7 @@ public class ElementTypeWindowForm extends Window {
 
 	}
 
-	private static class SaveSelectHandler extends CancelSelectHandler {
+	private class SaveSelectHandler extends CancelSelectHandler {
 
 		public SaveSelectHandler(Window window) {
 			super(window);
@@ -62,14 +68,13 @@ public class ElementTypeWindowForm extends Window {
 
 						@Override
 						public void onSuccess(CMConstractionElementType result) {
-							// TODO Auto-generated method stub
-
+							Info.display("Создан тип элемента", result.getName());
+							formMgr.updateData();
 						}
 
 						@Override
 						public void onFailure(Throwable caught) {
-							// TODO Auto-generated method stub
-
+							Info.display("Ошибка","Ошибка при создании типа элемента<br/>"+caught.getMessage());
 						}
 					});
 			super.onSelect(event);

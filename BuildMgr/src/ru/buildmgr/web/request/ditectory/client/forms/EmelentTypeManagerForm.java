@@ -10,26 +10,32 @@ import ru.buildmgr.web.request.ditectory.client.grids.ElemetsTypesGrid;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.sencha.gxt.widget.core.client.event.SelectEvent;
 import com.sencha.gxt.widget.core.client.event.SelectEvent.SelectHandler;
+import com.sencha.gxt.widget.core.client.info.Info;
 
 public class EmelentTypeManagerForm extends CommonForm {
 
+	private final ElemetsTypesGrid grid;
 
 	public EmelentTypeManagerForm() {
 		super();
+		grid = new ElemetsTypesGrid();
+		updateData();
+	}
+	
+	public void updateData(){
 		RequestDirectory.getServices().getAllCMConstractionElementTypes(new AsyncCallback<List<CMConstractionElementType>>() {
 
 			@Override
 			public void onSuccess(List<CMConstractionElementType> result) {
-				ElemetsTypesGrid grid = new ElemetsTypesGrid(result);
+				grid.setElemetsTypes(result);
 				add(grid);
 			}
 
 			@Override
 			public void onFailure(Throwable caught) {
-				setHeadingText("ERROR2");
+				Info.display("Ошибка","Ошибка при обновлении данных <br/>"+caught.getMessage());
 			}
 		});
-
 	}
 
 	@Override
@@ -43,7 +49,7 @@ public class EmelentTypeManagerForm extends CommonForm {
 
 			@Override
 			public void onSelect(SelectEvent event) {
-				ElementTypeWindowForm window = new ElementTypeWindowForm();
+				ElementTypeWindowForm window = new ElementTypeWindowForm(EmelentTypeManagerForm.this);
 				window.show();
 			}
 		}));

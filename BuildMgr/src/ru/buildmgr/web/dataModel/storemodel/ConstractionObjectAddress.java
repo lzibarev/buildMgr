@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import ru.buildmgr.web.common.utils.StringUtils;
 import ru.buildmgr.web.dataModel.clientmodel.CMConstractionObjectAddress;
 
 import com.google.appengine.api.datastore.Key;
@@ -46,6 +47,11 @@ public class ConstractionObjectAddress {
 
 	public void setObjectAddressName(String objectAddressName) {
 		this.objectAddressName = objectAddressName;
+	}
+	
+
+	public boolean getIsValid(){
+		return StringUtils.isNotNull(getObjectAddressName());
 	}
 
 }
